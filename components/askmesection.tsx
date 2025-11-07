@@ -82,7 +82,7 @@ export default function AskMeSection() {
             </ul>
 
             <a
-              href="#modes"
+              href="/#modes"
               className="inline-block mt-6 px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 rounded-xl font-semibold shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:scale-105"
             >
               Back to Modes
