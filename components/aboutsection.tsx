@@ -30,11 +30,6 @@ export default function AboutSection() {
           voice interaction and telephony technologies to create seamless,
           multilingual communication experiences across devices and platforms.
         </p>
-
-        {/* Footer Note */}
-        <p className="text-gray-600 text-sm mt-6">
-          © {new Date().getFullYear()} Verve Automation · All rights reserved.
-        </p>
       </div>
     </section>
   );
