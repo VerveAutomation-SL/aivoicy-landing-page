@@ -6,22 +6,19 @@ export default function AboutSection() {
     <section
       id="about"
       className="py-20 px-6 bg-gradient-to-b from-[#1a1530] to-[#0a0a0f] text-white text-center border-t border-gray-800"
-
     >
       <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
-        {/* Verve Logo */}
-        <Image
-          src="/vervelogo.png"
-          alt="Verve Automation Logo"
-          width={180}
-          height={180}
-          className="opacity-90"
-        />
-
         {/* Title */}
         <h2 className="text-3xl md:text-4xl font-bold mt-6">
           Built by{" "}
-          <span className="text-indigo-400">Verve Automation</span>
+          <a
+            href="https://verveautomation.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-indigo-400 no-underline transition-all duration-300 hover:text-indigo-300 hover:drop-shadow-[0_0_10px_rgba(99,102,241,0.6)]"
+          >
+            Verve Automation
+          </a>
         </h2>
 
         {/* Short Description */}

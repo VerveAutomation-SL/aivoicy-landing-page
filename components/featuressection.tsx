@@ -14,13 +14,13 @@ const features = [
   },
   {
     icon: <Bot className="w-8 h-8 text-indigo-400" />,
-    title: "Gemini AI Responses",
-    desc: "Empowered by Gemini AI for contextual and human-like conversation flow.",
+    title: "AI Responses",
+    desc: "Empowered by AI for contextual and human-like conversation flow.",
   },
   {
     icon: <Shield className="w-8 h-8 text-indigo-400" />,
     title: "Secure Authentication",
-    desc: "Powered by Supabase Auth for safe and reliable access management.",
+    desc: "Powered by secure authentication for safe and reliable access management.",
   },
   {
     icon: <Smartphone className="w-8 h-8 text-indigo-400" />,
