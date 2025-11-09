@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const cards = [
   {
@@ -32,10 +33,17 @@ const cards = [
 
 export default function DownloadSection() {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  const next = () => setIndex((prev) => (prev + 1) % cards.length);
-  const prev = () =>
+  const next = () => {
+    setDirection(1);
+    setIndex((prev) => (prev + 1) % cards.length);
+  };
+
+  const prev = () => {
+    setDirection(-1);
     setIndex((prev) => (prev - 1 + cards.length) % cards.length);
+  };
 
   const card = cards[index];
 
@@ -71,32 +79,48 @@ export default function DownloadSection() {
         </div>
       </div>
 
-      {/* Right Side — Sliding Card */}
-      <div className="flex-1 max-w-lg bg-[#141425] border border-gray-800 rounded-2xl p-8 shadow-md shadow-indigo-500/10 transition-all duration-500 ease-in-out">
-        <p className="text-sm text-gray-400 mb-1">{card.subtitle}</p>
-        <h3 className="text-3xl font-bold mb-4">{card.title}</h3>
-        <p className="text-gray-300 mb-6 leading-relaxed">{card.description}</p>
+      {/* Right Side — Animated Sliding Card */}
+      <div className="flex-1 relative h-[320px] max-w-lg overflow-hidden">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={index}
+            custom={direction}
+            initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="absolute w-full h-full bg-[#141425] border border-gray-800 rounded-2xl p-8 shadow-md shadow-indigo-500/10 flex flex-col justify-between"
+          >
+            <div>
+              <p className="text-sm text-gray-400 mb-1">{card.subtitle}</p>
+              <h3 className="text-3xl font-bold mb-4">{card.title}</h3>
+              <p className="text-gray-300 leading-relaxed">{card.description}</p>
+            </div>
 
-        {card.badge ? (
-          <a
-            href={card.link}
-            className="inline-block hover:scale-105 transition-transform"
-          >
-            <Image
-              src={card.badge}
-              alt={`${card.title} Badge`}
-              width={180}
-              height={60}
-            />
-          </a>
-        ) : (
-          <a
-            href={card.link}
-            className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:text-indigo-300 transition"
-          >
-            Download <ArrowRight size={16} />
-          </a>
-        )}
+            <div>
+              {card.badge ? (
+                <a
+                  href={card.link}
+                  className="inline-block hover:scale-105 transition-transform"
+                >
+                  <Image
+                    src={card.badge}
+                    alt={`${card.title} Badge`}
+                    width={180}
+                    height={60}
+                  />
+                </a>
+              ) : (
+                <a
+                  href={card.link}
+                  className="inline-flex items-center gap-2 text-indigo-400 font-semibold hover:text-indigo-300 transition"
+                >
+                  Download <ArrowRight size={16} />
+                </a>
+              )}
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
