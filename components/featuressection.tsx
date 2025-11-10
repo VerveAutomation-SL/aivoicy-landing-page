@@ -25,7 +25,7 @@ const features = [
   {
     icon: <Smartphone className="w-8 h-8 text-indigo-400" />,
     title: "Cross-Device Support",
-    desc: "Available on web, Android, and telephony devices for seamless access.",
+    desc: "Available on web, Android, iOS, App Gallery and telephony devices for seamless access.",
   },
 ];
 
