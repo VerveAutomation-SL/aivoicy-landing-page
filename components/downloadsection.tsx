@@ -50,10 +50,10 @@ export default function DownloadSection() {
   return (
     <section
       id="download"
-      className="py-24 px-8 bg-[#0a0a0f] text-white border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden"
+      className="py-24 px-6 bg-[#0a0a0f] text-white border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden"
     >
       {/* Left Side — Static Heading */}
-      <div className="flex-1 max-w-md text-left">
+      <div className="flex-1 w-full text-left md:max-w-md">
         <h2 className="text-4xl font-bold mb-4">
           Get the <span className="text-indigo-400">AIVOICY</span> App
         </h2>
@@ -66,30 +66,30 @@ export default function DownloadSection() {
         <div className="flex gap-4 mt-8">
           <button
             onClick={prev}
-            className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-indigo-500 hover:text-indigo-400 transition"
+            className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center hover:border-indigo-500 hover:text-indigo-400 transition"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={22} />
           </button>
           <button
             onClick={next}
-            className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-indigo-500 hover:text-indigo-400 transition"
+            className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center hover:border-indigo-500 hover:text-indigo-400 transition"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={22} />
           </button>
         </div>
       </div>
 
-      {/* Right Side — Animated Sliding Card */}
-      <div className="flex-1 relative h-[320px] max-w-lg overflow-hidden">
+      {/* Right Side — Animated Card */}
+      <div className="flex-1 w-full relative max-w-lg min-h-[380px] sm:min-h-[420px] md:min-h-[360px] overflow-visible">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={index}
             custom={direction}
-            initial={{ opacity: 0, x: direction > 0 ? 100 : -100 }}
+            initial={{ opacity: 0, x: direction > 0 ? 80 : -80 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: direction > 0 ? -100 : 100 }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="absolute w-full h-full bg-[#141425] border border-gray-800 rounded-2xl p-8 shadow-md shadow-indigo-500/10 flex flex-col justify-between"
+            exit={{ opacity: 0, x: direction > 0 ? -80 : 80 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
+            className="absolute inset-0 bg-[#141425] border border-gray-800 rounded-2xl p-8 shadow-md shadow-indigo-500/10 flex flex-col justify-between md:static"
           >
             <div>
               <p className="text-sm text-gray-400 mb-1">{card.subtitle}</p>
@@ -97,7 +97,7 @@ export default function DownloadSection() {
               <p className="text-gray-300 leading-relaxed">{card.description}</p>
             </div>
 
-            <div>
+            <div className="mt-6">
               {card.badge ? (
                 <a
                   href={card.link}
