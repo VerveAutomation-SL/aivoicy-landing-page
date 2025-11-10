@@ -31,7 +31,7 @@ export default function ModesSection() {
             </p>
             <ul className="text-gray-300 text-sm space-y-2 mb-6">
               <li className="flex items-center justify-center gap-2">
-                <Bot size={16} className="text-indigo-400" /> Real-time Gemini AI
+                <Bot size={16} className="text-indigo-400" /> Real-time AI integration
               </li>
               <li className="flex items-center justify-center gap-2">
                 <Languages size={16} className="text-indigo-400" /> Multi-language translation
