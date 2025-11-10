@@ -1,5 +1,5 @@
 import React from "react";
-import { Globe, Mic, Bot, Shield, Smartphone, PlugZap } from "lucide-react";
+import { Globe, Mic, Bot, Shield, Smartphone } from "lucide-react";
 
 const features = [
   {
@@ -27,11 +27,6 @@ const features = [
     title: "Cross-Device Support",
     desc: "Available on web, Android, and telephony devices for seamless access.",
   },
-  {
-    icon: <PlugZap className="w-8 h-8 text-indigo-400" />,
-    title: "SDK & Integration",
-    desc: "Integrate AIVOICY easily into your existing apps and workflows via API/SDK.",
-  },
 ];
 
 export default function FeaturesSection() {
@@ -49,11 +44,11 @@ export default function FeaturesSection() {
       </p>
 
       {/* Features Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-10">
         {features.map((feature, idx) => (
           <div
             key={idx}
-            className="p-8 bg-[#12121a]/80 border border-gray-800 rounded-2xl shadow-md hover:shadow-indigo-500/10 transition-transform transform hover:-translate-y-2"
+            className="w-full sm:w-[45%] lg:w-[30%] p-8 bg-[#12121a]/80 border border-gray-800 rounded-2xl shadow-md hover:shadow-indigo-500/10 transition-transform transform hover:-translate-y-2"
           >
             <div className="flex flex-col items-center text-center gap-4">
               {feature.icon}
